@@ -1,12 +1,38 @@
-git使用：
+## step1. git安装
+
+1.apt-get install git
+
+2.配置git账号：git config --global user.name "your name"
+
+​                           git config --gloabal user.email "your email address"
+
+3.生成SSH密钥：ssh-keygen -t rsa -C "your email address"
+
+然后会提示选择密钥的保存路径，直接回车选择默认路径就好
+
+4.去到刚刚保存密钥的路径，cat /home/user/.ssh/id_rsa.pub（可以先去那个路径确认一下是否正确生成了密钥），打开生成密钥后复制（不复制最后的邮箱），然后添加到GitHub账号中的密钥，就可以正确使用啦～
+
+## step2. git使用
 
 ### 一. 将一个本地项目上传至GitHub
 
+（一）第一种方式
+
 1.在GitHub上首先新建一个新的仓库；
 
-2.在本地进入一个文件夹，然后gi t clone 地址，将远程仓库拉到本地。
+2.在本地进入一个文件夹，然后git clone 地址，将远程仓库拉到本地。
 
 3.在本地文件夹中将待上传的项目放到该文件夹中，然后git add .，将所有文件加入到暂存区，然后git commit -m "information"提交，最后git push -u origin master，将暂存区的这些信息都上传至远程仓库。
+
+（二）第二种方式
+
+1.在github先新建一个空的仓库；
+
+2.本地已有该项目，进到该路径下，然后git init在本地初始化一个仓库，然后git add .将所有内容添加，接着git commit -m "info"将所有内容提交；
+
+3.git git remote add origin sample.git(github上的仓库地址)，将本地仓库与远程仓库相连
+
+4.git push -u origin master
 
 ### 二. 远程更新之后，将更新内容同步到本地
 
@@ -26,7 +52,7 @@ git使用：
 
 **git add -A** **：**是上面两个功能的合集（git add --all的缩写）
 
-几种不同的应用场景：
+### 五. 一些多人协作的应用场景
 
 1.多人协作，或者修改一些内容需要新开分支：
 
